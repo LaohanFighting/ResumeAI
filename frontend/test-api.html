@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API连接测试</title>
+</head>
+<body>
+    <h1>API连接测试</h1>
+    <button onclick="testBackend()">测试后端连接</button>
+    <button onclick="testLogin()">测试登录API</button>
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+
+    <script>
+        async function testBackend() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '测试中...';
+            
+            try {
+                const response = await fetch('http://localhost:8000/');
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>✅ 后端连接成功！\n${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<pre>❌ 连接失败：\n${error.message}\n\n请检查：\n1. 后端服务器是否运行在 http://localhost:8000\n2. 防火墙是否阻止了连接</pre>`;
+            }
+        }
+
+        async function testLogin() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '测试登录中...';
+            
+            try {
+                const response = await fetch('http://localhost:8000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: 'test@example.com' })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>✅ 登录API测试成功！\n${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<pre>❌ 登录API测试失败：\n${error.message}\n\n请检查：\n1. 后端服务器是否运行\n2. CORS配置是否正确</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>

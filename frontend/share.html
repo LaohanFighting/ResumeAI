@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share ResumeAI - Help Others Land Their Dream Job</title>
+    <link rel="stylesheet" href="/static/share.css">
+</head>
+<body>
+    <div class="share-container">
+        <div class="share-content">
+            <h1>Share ResumeAI</h1>
+            <p class="share-intro">If ResumeAI helped you tailor your resume, consider sharing it with others who are job searching.</p>
+            
+            <div class="share-box">
+                <h2>Ready-to-use message</h2>
+                <div class="message-box">
+                    <p id="shareMessage">I used ResumeAI to tailor my resume for a job application. It generates customized resumes and cover letters based on the job description. Free to try: <span id="shareUrl"></span></p>
+                </div>
+                <button onclick="copyMessage()" class="copy-btn">Copy Message</button>
+            </div>
+
+            <div class="share-platforms">
+                <h2>Share on</h2>
+                <div class="platform-buttons">
+                    <button onclick="shareOnReddit()" class="platform-btn reddit">Reddit</button>
+                    <button onclick="shareOnTwitter()" class="platform-btn twitter">Twitter</button>
+                    <button onclick="shareOnLinkedIn()" class="platform-btn linkedin">LinkedIn</button>
+                    <button onclick="shareOnEmail()" class="platform-btn email">Email</button>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h3>Tips for sharing</h3>
+                <ul>
+                    <li>Share in relevant subreddits like r/jobs, r/resumes, r/careeradvice</li>
+                    <li>Be honest about your experience - mention if it helped you get interviews</li>
+                    <li>Don't spam - only share where it's genuinely helpful</li>
+                </ul>
+            </div>
+
+            <div class="back-link">
+                <a href="/app">← Back to ResumeAI</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get current URL
+        const currentUrl = window.location.origin;
+        document.getElementById('shareUrl').textContent = currentUrl;
+
+        function copyMessage() {
+            const message = document.getElementById('shareMessage').textContent;
+            navigator.clipboard.writeText(message).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#4caf50';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#667eea';
+                }, 2000);
+            });
+        }
+
+        function shareOnReddit() {
+            const url = encodeURIComponent(currentUrl);
+            const title = encodeURIComponent("I used this AI tool to tailor my resume for job applications");
+            window.open(`https://reddit.com/submit?url=${url}&title=${title}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const text = encodeURIComponent(`I used ResumeAI to tailor my resume for job applications. Free to try: ${currentUrl}`);
+            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(currentUrl);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function shareOnEmail() {
+            const subject = encodeURIComponent("Check out this resume tool");
+            const body = encodeURIComponent(`I found this useful tool for tailoring resumes: ${currentUrl}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>

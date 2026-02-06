@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+*.env
+backend/.env
+backend/*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test files
+test_stripe_config.py
+测试Stripe配置.py
+
+# Temporary files
+*.tmp
+*.bak
+
+# Build files
+dist/
+build/
+*.egg-info/

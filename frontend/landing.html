@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered resume and cover letter generator. Tailor your resume for each job application in minutes.">
+    <title>ResumeAI - Tailor Your Resume for Every Job</title>
+    <link rel="stylesheet" href="/static/landing.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">ResumeAI</div>
+            <a href="/app" class="nav-btn">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Stop sending the same resume to every job</h1>
+            <p class="hero-subtitle">Tailor your resume and cover letter for each application in minutes. Used by real job seekers who want better results.</p>
+            <a href="/app" class="cta-button" id="heroCta">Generate My Resume</a>
+            <p class="hero-note">Free to try • No credit card required</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Paste Job Description</h3>
+                    <p>Copy the job posting you're applying for</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Paste Your Background</h3>
+                    <p>Share your work experience, skills, and achievements</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Tailored Resume & Cover Letter</h3>
+                    <p>Receive a customized resume and cover letter ready to submit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>Why job seekers use ResumeAI</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Tailored for each job</h3>
+                    <p>Every resume is customized to match the specific job requirements. No generic templates.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <h3>Used by real job seekers</h3>
+                    <p>Built by someone who understands the job search struggle. Simple, honest, effective.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Ready to submit</h3>
+                    <p>Get a professional resume and cover letter you can use immediately. No editing needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2>Simple, transparent pricing</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0</div>
+                    <ul class="features-list">
+                        <li>1 resume generation</li>
+                        <li>Tailored resume & cover letter</li>
+                        <li>No credit card required</li>
+                    </ul>
+                    <a href="/app" class="pricing-btn">Try Free</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price">$9.9<span>/month</span></div>
+                    <ul class="features-list">
+                        <li>100 generations per month</li>
+                        <li>All free features</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="/app" class="pricing-btn primary" id="proCta">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>ResumeAI helps job seekers create tailored resumes and cover letters using AI.</p>
+            <p class="disclaimer">This tool is for assistance only. Always review and customize your resume before submitting applications.</p>
+            <div class="footer-links">
+                <a href="/app">Get Started</a>
+                <a href="/share">Share</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple analytics - track CTA clicks
+        document.querySelectorAll('.cta-button, .pricing-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'landing_page'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

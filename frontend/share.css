@@ -1,0 +1,190 @@
+/* Share Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.share-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.share-content {
+    padding: 40px;
+}
+
+.share-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.share-intro {
+    font-size: 1.1em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.share-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.share-box h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.message-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.message-box #shareUrl {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-2px);
+}
+
+.share-platforms {
+    margin-bottom: 40px;
+}
+
+.share-platforms h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.platform-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.platform-btn {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    color: #333;
+}
+
+.platform-btn.reddit:hover {
+    background: #ff4500;
+    color: white;
+    border-color: #ff4500;
+}
+
+.platform-btn.twitter:hover {
+    background: #1da1f2;
+    color: white;
+    border-color: #1da1f2;
+}
+
+.platform-btn.linkedin:hover {
+    background: #0077b5;
+    color: white;
+    border-color: #0077b5;
+}
+
+.platform-btn.email:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.tips {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.tips h3 {
+    margin-bottom: 15px;
+    color: #856404;
+}
+
+.tips ul {
+    list-style-position: inside;
+    color: #856404;
+}
+
+.tips li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.back-link {
+    text-align: center;
+}
+
+.back-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .share-content {
+        padding: 20px;
+    }
+    
+    .share-content h1 {
+        font-size: 2em;
+    }
+    
+    .platform-buttons {
+        grid-template-columns: 1fr;
+    }
+}
