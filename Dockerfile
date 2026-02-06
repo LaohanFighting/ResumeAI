@@ -25,5 +25,5 @@ COPY frontend/ ./static/
 # 暴露端口（Railway会自动设置PORT环境变量）
 ENV PORT=8000
 
-# 运行应用
-CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
+# 运行应用（用 sh -c 确保 PORT 被正确展开）
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
