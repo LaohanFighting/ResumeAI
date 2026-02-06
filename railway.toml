@@ -3,7 +3,7 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-# 必须通过 shell 展开 PORT，否则 uvicorn 会收到字面量 $PORT
-startCommand = "sh -c 'uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}'"
+# 使用启动脚本，确保 PORT 正确传入（Railway 会覆盖 Dockerfile CMD 时也一致）
+startCommand = "/app/start.sh"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
