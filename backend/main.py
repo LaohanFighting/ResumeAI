@@ -4,13 +4,19 @@ FastAPI后端主文件
 """
 from fastapi import FastAPI, HTTPException, Header, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 import os
 from dotenv import load_dotenv
 
 # 首先加载.env文件中的环境变量（必须在导入其他模块之前）
-load_dotenv(dotenv_path='backend/.env')
+# 生产环境（Railway）无 .env 文件，依赖环境变量注入
+_env_path = os.path.join(os.path.dirname(__file__), '.env')
+if not os.path.isfile(_env_path):
+    _env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'backend', '.env')
+load_dotenv(dotenv_path=_env_path, override=False)
 
 from ai import generate_resume_and_cover_letter
 from auth import (
@@ -31,6 +37,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# 挂载静态资源（CSS/JS），供前端页面加载
+_static_dir = os.path.join(os.path.dirname(__file__), 'static')
+if os.path.isdir(_static_dir):
+    app.mount("/static", StaticFiles(directory=_static_dir), name="static")
 
 
 # ==================== 数据模型 ====================
